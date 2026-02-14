@@ -1,0 +1,32 @@
+{
+  "name": "@microblog/shared",
+  "version": "0.1.0",
+  "description": "Shared utilities/types for apps",
+  "private": false,
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "dev": "rspack build -w",
+    "build": "pnpm run build:types && rspack build -c rspack.config.mjs && rspack build -c rspack.config.cjs.mjs",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly --declaration --declarationMap --outDir dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.0.0",
+    "@rspack/core": "^1.0.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.5.0"
+  }
+}
