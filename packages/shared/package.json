@@ -4,7 +4,9 @@
   "description": "Shared utilities/types for apps",
   "private": false,
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -20,6 +22,10 @@
     "dev": "rspack build -w",
     "build": "pnpm run build:types && rspack build -c rspack.config.mjs && rspack build -c rspack.config.cjs.mjs",
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly --declaration --declarationMap --outDir dist",
+    "lint": "pnpm -w exec eslint .",
+    "lint:fix": "pnpm -w exec eslint . --fix",
+    "format": "pnpm -w exec prettier --write .",
+    "format:check": "pnpm -w exec prettier --check .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf dist"
   },

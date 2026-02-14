@@ -9,6 +9,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "pnpm -w exec eslint .",
+    "lint:fix": "pnpm -w exec eslint . --fix",
+    "format": "pnpm -w exec prettier --write .",
+    "format:check": "pnpm -w exec prettier --check .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf dist"
   },

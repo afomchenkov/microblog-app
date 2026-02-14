@@ -14,12 +14,21 @@
     "start:api": "pnpm --filter ./apps/api start",
     "build:shared": "pnpm --filter ./packages/shared build",
     "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "format": "turbo format",
+    "format:check": "turbo format:check",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean && rimraf node_modules"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^16.0.0",
+    "prettier": "^3.4.2",
     "rimraf": "^6.1.2",
     "turbo": "^2.7.2",
+    "typescript-eslint": "^8.20.0",
     "typescript": "^5.9.3"
   },
   "author": "",
