@@ -89,6 +89,11 @@ async function bootstrap() {
       },
     }),
   );
+  app.enableCors({
+    origin: '*',
+    credentials: true,
+  });
+
   await setupSwagger(app);
   await app.listen(port);
 }

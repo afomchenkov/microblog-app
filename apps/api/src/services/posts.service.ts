@@ -11,12 +11,14 @@ import {
 } from '../dtos/posts.dto';
 import { Post } from '../entities/post.entity';
 import { User } from '../entities/user.entity';
+import { FeedSseService, userFeedChannel } from './feed-sse.service';
 
 @Injectable()
 export class PostsService {
   constructor(
     @InjectRepository(Post) private readonly repo: Repository<Post>,
     @InjectRepository(User) private readonly usersRepo: Repository<User>,
+    private readonly sse: FeedSseService,
   ) {}
 
   async create(input: CreatePostDto): Promise<PostDto> {
@@ -27,6 +29,10 @@ export class PostsService {
 
     const post = this.repo.create(input);
     const saved = await this.savePost(post);
+
+    // Push to everyone watching this author's feed page
+    this.sse.push(userFeedChannel(author.id), 'post.created', post);
+
     return this.toPostDto(saved);
   }
 

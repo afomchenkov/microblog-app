@@ -11,9 +11,11 @@ import { Post } from './entities/post.entity';
 import { HealthService } from './services/health.service';
 import { UsersService } from './services/users.service';
 import { PostsService } from './services/posts.service';
+import { FeedSseService } from './services/feed-sse.service';
 import { HealthController } from './controllers/health.controller';
 import { UsersController } from './controllers/user.controller';
 import { PostsController } from './controllers/post.controller';
+import { FeedController } from './controllers/feed-sse.controller';
 
 @Module({
   imports: [
@@ -33,7 +35,7 @@ import { PostsController } from './controllers/post.controller';
     }),
     TypeOrmModule.forFeature([User, Post]),
   ],
-  controllers: [HealthController, UsersController, PostsController],
-  providers: [HealthService, UsersService, PostsService],
+  controllers: [FeedController, HealthController, UsersController, PostsController],
+  providers: [FeedSseService, HealthService, UsersService, PostsService],
 })
 export class APIModule {}
