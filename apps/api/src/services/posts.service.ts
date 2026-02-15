@@ -1,8 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { plainToInstance } from 'class-transformer';
-import { QueryFailedError, Repository } from 'typeorm';
-import { AllPostsDto, CreatePostDto, PostDto, UpdatePostDto } from '../dtos/posts.dto';
+import { LessThanOrEqual, QueryFailedError, Repository } from 'typeorm';
+import {
+  AllPostsDto,
+  CreatePostDto,
+  GetPostsQueryDto,
+  PostDto,
+  UpdatePostDto,
+} from '../dtos/posts.dto';
 import { Post } from '../entities/post.entity';
 import { User } from '../entities/user.entity';
 
@@ -24,8 +30,17 @@ export class PostsService {
     return this.toPostDto(saved);
   }
 
-  async findAll(): Promise<AllPostsDto> {
+  async findAll(filters: GetPostsQueryDto): Promise<AllPostsDto> {
+    const take = filters.numberPerPage ?? 30;
+    const skip = filters.offset ?? 0;
+    const where = filters.createdAt
+      ? { createdAt: LessThanOrEqual(new Date(filters.createdAt)) }
+      : undefined;
+
     const posts = await this.repo.find({
+      where,
+      skip,
+      take,
       order: { createdAt: 'DESC' },
     });
     return plainToInstance(

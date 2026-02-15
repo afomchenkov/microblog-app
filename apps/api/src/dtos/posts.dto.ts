@@ -1,10 +1,13 @@
 import { Expose, Transform, Type } from 'class-transformer';
 import {
+  IsDateString,
+  IsInt,
   IsNotEmpty,
   IsOptional,
   IsString,
   IsUUID,
   MaxLength,
+  Min,
   ValidateNested,
 } from 'class-validator';
 
@@ -70,4 +73,22 @@ export class AllPostsDto {
   @Type(() => PostDto)
   @ValidateNested({ each: true })
   posts!: PostDto[];
+}
+
+export class GetPostsQueryDto {
+  @Type(() => Number)
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  offset?: number;
+
+  @Type(() => Number)
+  @IsOptional()
+  @IsInt()
+  @Min(1)
+  numberPerPage?: number;
+
+  @IsOptional()
+  @IsDateString()
+  createdAt?: string;
 }

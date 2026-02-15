@@ -1,6 +1,22 @@
-import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { AllPostsDto, CreatePostDto, PostDto, UpdatePostDto } from '../dtos/posts.dto';
+import {
+  AllPostsDto,
+  CreatePostDto,
+  GetPostsQueryDto,
+  PostDto,
+  UpdatePostDto,
+} from '../dtos/posts.dto';
 import { PostsService } from '../services/posts.service';
 
 @Controller('posts')
@@ -16,8 +32,8 @@ export class PostsController {
 
   @Get()
   @ApiOperation({ summary: 'Get all posts', operationId: 'get-all-posts' })
-  async findAll(): Promise<AllPostsDto> {
-    return this.postsService.findAll();
+  async findAll(@Query() query: GetPostsQueryDto): Promise<AllPostsDto> {
+    return this.postsService.findAll(query);
   }
 
   @Get(':id')
