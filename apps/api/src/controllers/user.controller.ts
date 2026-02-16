@@ -20,6 +20,12 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get('username/:username')
+  @ApiOperation({ summary: 'Get user by username', operationId: 'get-user-by-username' })
+  async findOneByUsername(@Param('username') username: string): Promise<UserDto> {
+    return this.usersService.findOneByUsername(username);
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get user by id', operationId: 'get-user-by-id' })
   async findOne(@Param('id', new ParseUUIDPipe()) id: string): Promise<UserDto> {

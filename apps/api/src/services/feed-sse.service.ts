@@ -17,13 +17,16 @@ export class FeedSseService {
       this.subjects.set(channelId, subject);
     }
 
-    subject.next({ type: 'start_subscription', data: { ts: Date.now(), channelId } });
+    subject.next({ type: 'post:start_subscription', data: { ts: Date.now(), channelId } });
+
     return subject.asObservable();
   }
 
   push(channelId: ChannelId, type: string, data: object) {
     const subject = this.subjects.get(channelId);
-    if (!subject) return;
-    subject.next({ type, data });
+
+    if (subject) {
+      subject.next({ type, data });
+    }
   }
 }

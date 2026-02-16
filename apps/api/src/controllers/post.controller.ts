@@ -36,6 +36,14 @@ export class PostsController {
     return this.postsService.findAll(query);
   }
 
+  @Get('users/:authorId')
+  @ApiOperation({ summary: 'Get posts by user id', operationId: 'get-posts-by-user-id' })
+  async findAllByAuthorId(
+    @Param('authorId', new ParseUUIDPipe()) authorId: string,
+  ): Promise<AllPostsDto> {
+    return this.postsService.findAllByAuthorId(authorId);
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get post by id', operationId: 'get-post-by-id' })
   async findOne(@Param('id', new ParseUUIDPipe()) id: string): Promise<PostDto> {

@@ -34,6 +34,14 @@ export class UsersService {
     return this.toUserDto(user);
   }
 
+  async findOneByUsername(username: string): Promise<UserDto> {
+    const user = await this.repo.findOne({ where: { username } });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return this.toUserDto(user);
+  }
+
   async update(id: string, input: UpdateUserDto): Promise<UserDto> {
     const user = await this.findOneEntity(id);
     const updated = this.repo.merge(user, input);

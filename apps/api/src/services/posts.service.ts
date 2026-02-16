@@ -64,6 +64,18 @@ export class PostsService {
     return this.toPostDto(post);
   }
 
+  async findAllByAuthorId(authorId: string): Promise<AllPostsDto> {
+    const posts = await this.repo.find({
+      where: { authorId },
+      order: { createdAt: 'DESC' },
+    });
+    return plainToInstance(
+      AllPostsDto,
+      { posts: posts.map((post) => this.toPostDto(post)) },
+      { excludeExtraneousValues: true },
+    );
+  }
+
   async update(id: string, input: UpdatePostDto): Promise<PostDto> {
     const post = await this.findOneEntity(id);
     const updated = this.repo.merge(post, input);
