@@ -187,6 +187,18 @@ body {
   }
 }
 
+.user-page-link {
+  width: fit-content;
+  color: #1e4fbf;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @media (max-width: 960px) {
   .page-title-row {
     align-items: flex-start;

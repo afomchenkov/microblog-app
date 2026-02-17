@@ -1,0 +1,19 @@
+@use '../Styles.scss' as *;
+
+.mblg__user-detail {
+  &-card {
+    background: $white;
+    border: 1px solid #e2e6f1;
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  &-card-title {
+    margin: 0 0 12px;
+  }
+
+  &-row {
+    margin: 0 0 8px;
+    color: #2f3444;
+  }
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { UserFeedCard } from '../components/UserFeedCard';
 import { useUserFeedSse } from '../hooks/useUserFeedSse';
 import { CreatePostForm, CreatePostFormValues } from '../components/forms/CreatePostForm';
@@ -126,6 +126,9 @@ export function UserPage() {
           </button>
         </div>
         <p className="page-description">Posts by @{username ?? 'unknown'}</p>
+        <Link to={`/users/${username}/details`} className="user-page-link">
+          User Details
+        </Link>
       </header>
 
       {userQuery.isLoading ? <p className="feed-empty">Loading user...</p> : null}
