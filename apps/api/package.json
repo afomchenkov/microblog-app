@@ -13,7 +13,8 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "NODE_ENV=production node dist/main.js",
+    "ensure:better-sqlite3": "node -e \"try{require('better-sqlite3');console.log('better-sqlite3 binding OK');}catch(e){console.log('better-sqlite3 binding missing, rebuilding...');require('node:child_process').execSync('pnpm rebuild better-sqlite3',{stdio:'inherit'});}\"",
+    "start:prod": "pnpm run ensure:better-sqlite3 && NODE_ENV=production node dist/main.js",
     "lint": "pnpm -w exec eslint .",
     "lint:fix": "pnpm -w exec eslint . --fix",
     "test": "jest",
@@ -26,6 +27,9 @@
     "migration:create": "pnpm typeorm migration:create src/migrations/Empty",
     "migration:run": "pnpm build && typeorm -d dist/typeorm.datasource.js migration:run",
     "migration:revert": "pnpm build && typeorm -d dist/typeorm.datasource.js migration:revert"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "dependencies": {
     "@microblog/shared": "workspace:*",
