@@ -33,7 +33,7 @@ const databasePath = isProduction
     ScheduleModule.forRoot(),
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: 'better-sqlite3',
+      type: 'sqlite',
       database: databasePath,
       entities: [User, Post],
       migrations: ['dist/migrations/*.js'],
