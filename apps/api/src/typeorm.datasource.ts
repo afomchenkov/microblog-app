@@ -10,7 +10,7 @@ const databasePath = isProduction
   : join(process.cwd(), 'data', 'microblog.db');
 
 export const AppDataSource = new DataSource({
-  type: 'sqlite',
+  type: 'better-sqlite3',
   database: databasePath,
   entities: [User, Post],
   migrations: [join(process.cwd(), 'dist', 'migrations', '*.js')],
