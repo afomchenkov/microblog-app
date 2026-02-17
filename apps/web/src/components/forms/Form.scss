@@ -1,11 +1,4 @@
-$font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
-$app-bg: #f5f6fa;
-$white: #ffffff;
-$text-main: #202129;
-$text-muted: #656d80;
-$border-soft: #e4e7ef;
-$hover-bg: #eef3ff;
-$active-bg: #dfe8ff;
+@use '../../Styles.scss' as *;
 
 .mblg-app__modal {
   width: 100%;

@@ -83,52 +83,6 @@ body {
   }
 }
 
-.left-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-  min-height: 0;
-
-  &-title {
-    margin: 0 0 12px;
-    font-size: 1.4rem;
-  }
-
-  &-section-label {
-    margin: 16px 0 6px;
-    font-size: 0.85rem;
-    color: $text-muted;
-    text-transform: uppercase;
-  }
-
-  &-link {
-    border-radius: 10px;
-    padding: 10px 12px;
-    text-decoration: none;
-    color: #293040;
-    font-weight: 600;
-
-    &:hover {
-      background: $hover-bg;
-    }
-  }
-
-  &-link-active {
-    background: $active-bg;
-    color: #123a90;
-  }
-}
-
-.left-menu-users {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-height: 0;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
 .page-section {
   display: flex;
   flex-direction: column;
@@ -188,65 +142,12 @@ body {
   gap: 14px;
 }
 
-.home-feed-viewport {
-  height: 68vh;
-}
-
-.home-feed-card {
-  background: $white;
-  border: 1px solid #e2e6f1;
-  border-radius: 14px;
-  padding: 14px 16px;
-  margin-bottom: 10px;
-
-  &-date {
-    margin: 0 0 6px;
-    font-size: 0.85rem;
-    color: $text-muted;
-  }
-
-  &-author {
-    margin: 0 0 6px;
-    font-size: 0.85rem;
-    color: #4c5670;
-  }
-
-  &-title {
-    margin: 0 0 6px;
-  }
-
-  &-content {
-    margin: 0;
-    color: #2f3444;
-  }
-}
-
-.user-feed-card {
-  background: $white;
-  border: 1px solid #e2e6f1;
-  border-radius: 14px;
-  padding: 14px 16px;
-
-  &-date {
-    margin: 0 0 6px;
-    font-size: 0.85rem;
-    color: $text-muted;
-  }
-
-  &-author {
-    margin: 0 0 6px;
-    font-size: 0.85rem;
-    color: #4c5670;
-  }
-
-  &-title {
-    margin: 0 0 6px;
-  }
-
-  &-content {
-    margin: 0;
-    color: #2f3444;
-  }
+.user-feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .feed-empty {
@@ -258,16 +159,35 @@ body {
   background: $white;
 }
 
+.mblg__user-feed-card {
+  background: $white;
+  border: 1px solid #e2e6f1;
+  border-radius: 14px;
+  padding: 14px 16px;
+
+  &-date {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: $text-muted;
+  }
+
+  &-author {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: #4c5670;
+  }
+
+  &-title {
+    margin: 0 0 6px;
+  }
+
+  &-content {
+    margin: 0;
+    color: #2f3444;
+  }
+}
+
 @media (max-width: 960px) {
-  .left-menu {
-    height: auto;
-    min-height: initial;
-  }
-
-  .left-menu-users {
-    overflow: visible;
-  }
-
   .page-title-row {
     align-items: flex-start;
     flex-direction: column;

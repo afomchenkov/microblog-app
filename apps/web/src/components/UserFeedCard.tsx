@@ -14,14 +14,14 @@ export function UserFeedCard({ posts, emptyMessage = 'No posts yet.' }: UserFeed
   }
 
   return (
-    <div className="feed-list">
+    <div className="user-feed-list">
       {posts.map((post) => (
-        <article key={post.id} className="user-feed-card">
-          <p className="user-feed-card-date">
+        <article key={post.id} className="mblg__user-feed-card">
+          <p className="mblg__user-feed-card-date">
             Posted at: {format(parseISO(post.createdAt), DATE_FORMAT)}
           </p>
-          <h3 className="user-feed-card-title">{post.title}</h3>
-          <p className="user-feed-card-content">{post.content}</p>
+          <h3 className="mblg__user-feed-card-title">{post.title}</h3>
+          <p className="mblg__user-feed-card-content">{post.content}</p>
         </article>
       ))}
     </div>

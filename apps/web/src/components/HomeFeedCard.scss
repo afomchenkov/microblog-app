@@ -1,0 +1,36 @@
+@use '../Styles.scss' as *;
+
+.mblg__home-feed {
+  &-card {
+    background: $white;
+    border: 1px solid #e2e6f1;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+
+    &-date {
+      margin: 0 0 6px;
+      font-size: 0.85rem;
+      color: $text-muted;
+    }
+
+    &-author {
+      margin: 0 0 6px;
+      font-size: 0.85rem;
+      color: #4c5670;
+    }
+
+    &-title {
+      margin: 0 0 6px;
+    }
+
+    &-content {
+      margin: 0;
+      color: #2f3444;
+    }
+  }
+
+  &-viewport {
+    height: 68vh;
+  }
+}

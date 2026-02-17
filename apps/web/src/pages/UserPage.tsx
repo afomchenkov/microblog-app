@@ -31,6 +31,7 @@ export function UserPage() {
     }
     await queryClient.invalidateQueries({ queryKey: ['posts-by-user-id', authorId] });
   }, [authorId, queryClient]);
+
   useUserFeedSse(authorId, onNewPost);
 
   const userPostsQuery = useQuery({
@@ -112,7 +113,7 @@ export function UserPage() {
 
   return (
     <section className="page-section">
-      <header className="page-header user-page-header">
+      <header className="page-header">
         <div className="page-title-row">
           <h1 className="page-title">User Page</h1>
           <button

@@ -1,0 +1,58 @@
+@use '../Styles.scss' as *;
+
+.mblg__left-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+
+  &-title {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+  }
+
+  &-section-label {
+    margin: 16px 0 6px;
+    font-size: 0.85rem;
+    color: $text-muted;
+    text-transform: uppercase;
+  }
+
+  &-link {
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #293040;
+    font-weight: 600;
+
+    &:hover {
+      background: $hover-bg;
+    }
+  }
+
+  &-link-active {
+    background: $active-bg;
+    color: #123a90;
+  }
+}
+
+.mblg__left-menu-users {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+@media (max-width: 960px) {
+  .mblg__left-menu {
+    height: auto;
+    min-height: initial;
+  }
+
+  .mblg__left-menu-users {
+    overflow: visible;
+  }
+}
