@@ -1,0 +1,29 @@
+import { parseISO, format } from 'date-fns';
+import { FeedPost } from '../types';
+
+type UserFeedCardProps = {
+  posts: FeedPost[];
+  emptyMessage?: string;
+};
+
+const DATE_FORMAT = 'MMM d, yyyy • h:mm a';
+
+export function UserFeedCard({ posts, emptyMessage = 'No posts yet.' }: UserFeedCardProps) {
+  if (!posts.length) {
+    return <p className="feed-empty">{emptyMessage}</p>;
+  }
+
+  return (
+    <div className="feed-list">
+      {posts.map((post) => (
+        <article key={post.id} className="user-feed-card">
+          <p className="user-feed-card-date">
+            Posted at: {format(parseISO(post.createdAt), DATE_FORMAT)}
+          </p>
+          <h3 className="user-feed-card-title">{post.title}</h3>
+          <p className="user-feed-card-content">{post.content}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
