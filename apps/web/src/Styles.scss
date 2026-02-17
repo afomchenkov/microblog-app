@@ -1,0 +1,275 @@
+$font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+$app-bg: #f5f6fa;
+$white: #ffffff;
+$text-main: #202129;
+$text-muted: #656d80;
+$border-soft: #e4e7ef;
+$hover-bg: #eef3ff;
+$active-bg: #dfe8ff;
+
+:root {
+  font-family: $font-family;
+  color: $text-main;
+  background: $app-bg;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: $app-bg;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+.mblg-app {
+  &__shell {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 680px) 1fr;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+
+  &__sidebar {
+    border-right: 1px solid $border-soft;
+    padding: 24px 16px;
+    background: $white;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__main {
+    padding: 16px 20px 40px;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__content {
+    display: block;
+  }
+
+  &__add-user-button {
+    border: 1px solid #d2d9ea;
+    border-radius: 8px;
+    background: $white;
+    color: #27314a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 8px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: $hover-bg;
+      border-color: #bfd0fb;
+    }
+  }
+}
+
+.left-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+
+  &-title {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+  }
+
+  &-section-label {
+    margin: 16px 0 6px;
+    font-size: 0.85rem;
+    color: $text-muted;
+    text-transform: uppercase;
+  }
+
+  &-link {
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #293040;
+    font-weight: 600;
+
+    &:hover {
+      background: $hover-bg;
+    }
+  }
+
+  &-link-active {
+    background: $active-bg;
+    color: #123a90;
+  }
+}
+
+.left-menu-users {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.page-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: $app-bg;
+  padding-bottom: 12px;
+}
+
+.page-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.add-post-button {
+  border: 1px solid #1f5ce5;
+  border-radius: 8px;
+  background: #2e69ed;
+  color: $white;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 11px;
+  cursor: pointer;
+
+  &:hover {
+    background: #215bd9;
+  }
+}
+
+.page-description {
+  margin: 0;
+  color: #596079;
+}
+
+.feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-feed-viewport {
+  height: 68vh;
+}
+
+.home-feed-card {
+  background: $white;
+  border: 1px solid #e2e6f1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+
+  &-date {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: $text-muted;
+  }
+
+  &-author {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: #4c5670;
+  }
+
+  &-title {
+    margin: 0 0 6px;
+  }
+
+  &-content {
+    margin: 0;
+    color: #2f3444;
+  }
+}
+
+.user-feed-card {
+  background: $white;
+  border: 1px solid #e2e6f1;
+  border-radius: 14px;
+  padding: 14px 16px;
+
+  &-date {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: $text-muted;
+  }
+
+  &-author {
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: #4c5670;
+  }
+
+  &-title {
+    margin: 0 0 6px;
+  }
+
+  &-content {
+    margin: 0;
+    color: #2f3444;
+  }
+}
+
+.feed-empty {
+  margin: 0;
+  padding: 16px;
+  border: 1px dashed #bcc5da;
+  border-radius: 12px;
+  color: #5f6780;
+  background: $white;
+}
+
+@media (max-width: 960px) {
+  .left-menu {
+    height: auto;
+    min-height: initial;
+  }
+
+  .left-menu-users {
+    overflow: visible;
+  }
+
+  .page-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
