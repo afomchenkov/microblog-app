@@ -12,6 +12,7 @@
     "start:web": "pnpm --filter ./apps/web dev",
     "build:api": "pnpm --filter ./apps/api build",
     "start:api": "pnpm --filter ./apps/api start",
+    "start:api:prod": "pnpm --filter ./apps/api start:prod",
     "build:shared": "pnpm --filter ./packages/shared build",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",

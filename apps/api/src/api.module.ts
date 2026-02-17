@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { join } from 'path';
 import { ScheduleModule } from '@nestjs/schedule';
 import { CacheModule } from '@nestjs/cache-manager';
 import { ConfigModule } from '@nestjs/config';
@@ -18,6 +19,11 @@ import { UsersController } from './controllers/user.controller';
 import { PostsController } from './controllers/post.controller';
 import { FeedController } from './controllers/feed-sse.controller';
 
+const isProduction = process.env.NODE_ENV === 'production';
+const databasePath = isProduction
+  ? join(__dirname, 'data', 'microblog.db')
+  : join(process.cwd(), 'data', 'microblog.db');
+
 @Module({
   imports: [
     CacheModule.register({
@@ -28,7 +34,7 @@ import { FeedController } from './controllers/feed-sse.controller';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'better-sqlite3',
-      database: 'data/microblog.db',
+      database: databasePath,
       entities: [User, Post],
       migrations: ['dist/migrations/*.js'],
       synchronize: false,
