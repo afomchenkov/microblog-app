@@ -12,6 +12,7 @@ import { HealthService } from './services/health.service';
 import { UsersService } from './services/users.service';
 import { PostsService } from './services/posts.service';
 import { FeedSseService } from './services/feed-sse.service';
+import { SqliteConfigService } from './services/sqlite-config.service';
 import { HealthController } from './controllers/health.controller';
 import { UsersController } from './controllers/user.controller';
 import { PostsController } from './controllers/post.controller';
@@ -36,6 +37,6 @@ import { FeedController } from './controllers/feed-sse.controller';
     TypeOrmModule.forFeature([User, Post]),
   ],
   controllers: [FeedController, HealthController, UsersController, PostsController],
-  providers: [FeedSseService, HealthService, UsersService, PostsService],
+  providers: [FeedSseService, HealthService, UsersService, PostsService, SqliteConfigService],
 })
 export class APIModule {}
