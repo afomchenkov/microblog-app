@@ -4,6 +4,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   preview: {
-    allowedHosts: ['microblogweb-production.up.railway.app'],
+    allowedHosts: ['microblogweb-web.up.railway.app', 'localhost'],
   },
 });
