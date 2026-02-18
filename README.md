@@ -21,16 +21,6 @@ npm install -g pnpm@10
 pnpm --version
 ```
 
-## Run locally
-
-```sh
-pnpm install
-pnpm dev
-
-pnpm --filter @microblog/api dev
-pnpm --filter @microblog/web dev
-```
-
 ## Run with Docker Compose
 
 ```sh
@@ -49,9 +39,7 @@ docker compose down -v
 
 Services:
 
-- Web: `http://localhost:5173`
+- Navigate to UI: `http://localhost:5173`
 - API: `http://localhost:8081/api/v1`
 
 <img width="982" height="608" alt="Screenshot 2026-02-18 at 12 42 25" src="https://github.com/user-attachments/assets/7979e303-b4d7-4fdd-b9b4-0a802838ba1e" />
-
-
