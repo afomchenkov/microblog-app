@@ -4,6 +4,15 @@ The monorepo is setup with Turborepo and pnpm.
 
 The service uses Sqlite as a persistence storage for simplicity.
 
+TODO:
+
+```txt
+- Connect proper persistence PostgreSQL/MySQl etc.
+- Migrate UI to components library support, integrate Tailwind
+- If app does not have specific requirements, migrate to Next.js
+- Update the design and the layout of the UI columns
+```
+
 ## Install pnpm
 
 Option 1 (recommended, via Corepack):

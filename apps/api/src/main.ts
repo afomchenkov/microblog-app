@@ -14,7 +14,7 @@ const ENV = process.env.NODE_ENV || 'unknown';
 
 const setupSwagger = async (app: INestApplication): Promise<void> => {
   const documentBuilder = new DocumentBuilder()
-    .setTitle('Auction Service')
+    .setTitle('Microblog Service')
     .setVersion('0.0.1')
     .addBasicAuth(
       {
