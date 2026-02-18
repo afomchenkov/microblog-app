@@ -51,3 +51,7 @@ Services:
 
 - Web: `http://localhost:5173`
 - API: `http://localhost:8081/api/v1`
+
+<img width="982" height="608" alt="Screenshot 2026-02-18 at 12 42 25" src="https://github.com/user-attachments/assets/7979e303-b4d7-4fdd-b9b4-0a802838ba1e" />
+
+
