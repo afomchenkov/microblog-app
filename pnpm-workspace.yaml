@@ -1,10 +1,3 @@
 packages:
   - 'packages/*'
   - 'apps/*'
-
-# Force lifecycle scripts ON in CI environments that may set ignore-scripts=true
-ignoreScripts: false
-
-# pnpm v10: explicitly allow native deps to run their build scripts
-onlyBuiltDependencies:
-  - better-sqlite3

@@ -14,7 +14,8 @@
     "format": "pnpm -w exec prettier --write .",
     "format:check": "pnpm -w exec prettier --check .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "start": "vite --host 0.0.0.0 --port 5173"
   },
   "dependencies": {
     "@radix-ui/themes": "^3.3.0",

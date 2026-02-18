@@ -25,7 +25,6 @@ RUN node -e "require('better-sqlite3'); console.log('better-sqlite3 OK')"
 RUN npm run build:npm
 
 ENV NODE_ENV=production
-# ENV PORT=8081
 
 EXPOSE 8081
 EXPOSE 8080
