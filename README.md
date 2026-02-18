@@ -1,30 +1,53 @@
 # Microblog App
 
-## Run dev
+The monorepo is setup with Turborepo and pnpm.
+
+The service uses Sqlite as a persistence storage for simplicity.
+
+## Install pnpm
+
+Option 1 (recommended, via Corepack):
 
 ```sh
-pnpm i
+corepack enable
+corepack prepare pnpm@10.0.0 --activate
+pnpm --version
+```
+
+Option 2 (global npm install):
+
+```sh
+npm install -g pnpm@10
+pnpm --version
+```
+
+## Run locally
+
+```sh
+pnpm install
 pnpm dev
 
 pnpm --filter @microblog/api dev
 pnpm --filter @microblog/web dev
 ```
 
-## Publish package
-
-> Publishing packages/shared to npm
+## Run with Docker Compose
 
 ```sh
-# login
-pnpm -C packages/shared npm whoami
+# build and start API + Web
+docker compose up --build
 
-# build it
-pnpm --filter @microblog/shared build
+# run in background
+docker compose up --build -d
 
-# publish from the package folder
-pnpm -C packages/shared publish --access public
+# stop containers
+docker compose down
+
+# stop and remove volumes (clean state)
+docker compose down -v
 ```
 
-Common add-ons:
-Changesets for versioning/release automation (@changesets/cli)
-GitHub Actions for publishing on tag / main merges
+Services:
+
+- Web: `http://localhost:5173`
+- API: `http://localhost:8081/api/v1`
