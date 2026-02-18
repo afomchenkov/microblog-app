@@ -7,6 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build && pnpm run copy:db:dist",
+    "build:npm": "nest build && npm run copy:db:dist",
     "copy:db:dist": "node scripts/copy-db-dist.js",
     "format": "pnpm -w exec prettier --write .",
     "format:check": "pnpm -w exec prettier --check .",
