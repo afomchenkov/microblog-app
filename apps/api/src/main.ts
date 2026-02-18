@@ -76,7 +76,7 @@ async function bootstrap() {
   });
 
   const configService: ConfigService = app.get<ConfigService>(ConfigService);
-  const port = configService.get('PORT');
+  const port = configService.get('PORT', 8081);
 
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(
@@ -95,7 +95,7 @@ async function bootstrap() {
   });
 
   await setupSwagger(app);
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
 }
 
 bootstrap();
