@@ -94,6 +94,8 @@ async function bootstrap() {
     credentials: true,
   });
 
+  console.log('Starting API service on port: ', port);
+
   await setupSwagger(app);
   await app.listen(port, '0.0.0.0');
 }

@@ -28,5 +28,7 @@ ENV NODE_ENV=production
 # ENV PORT=8081
 
 EXPOSE 8081
+EXPOSE 8080
+EXPOSE 3000
 
 CMD ["node", "dist/main.js"]
