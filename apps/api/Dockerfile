@@ -25,4 +25,5 @@ RUN pnpm build:api
 
 WORKDIR /app/apps/api
 ENV NODE_ENV=production
-CMD ["pnpm", "start:api:prod"]
+
+CMD ["pnpm", "start:prod"]
